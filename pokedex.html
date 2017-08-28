@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>   
+    <script>
+        $(document).ready(function(){
+
+        for (var i=1; i<=151; i++){
+        $('#wrapper').append("<img id=" + i + " " + "src='http://pokeapi.co/media/img/" + i + ".png'>");
+    };
+    
+    
+        $('img').on('click', function(){
+            var id= this.id;
+            $.get('http://pokeapi.co/api/v1/pokemon/' + id , function(res) {
+                var poke_info = "";
+                    poke_info += "<h1> " + res['name'] + "</h1>";
+                    poke_info += `<div id="poke_img"><img src="http://pokeapi.co/media/img/${id}.png" id="${id}"></div>`;
+                    poke_info += "<h4>Height:</h4>";
+                    poke_info += res['height'];
+                    poke_info += "<h4>Weight</h4>";
+                    poke_info += res['weight'];
+                    poke_info += "<h4>Types</h4>";
+                    poke_info += "<ul>";
+                    for (var k = 0; k < res['types'].length; k++) {
+                        poke_info += "<li>" + res['types'][k]['name'] + "</li>";
+                    }
+                    poke_info += "</ul>";
+                    
+
+                    $('#pokedex_frame').html(poke_info);
+            
+       
+        });
+    
+  
+
+        
+    });
+
+    
+
+        });
+    </script>
+</head>
+<body>
+    <div id="wrapper"></div>
+
+
+    <div id="pokedex_frame">
+        <div id="poke_img"></div>
+
+    </div>
+
+
+
+</body>
+</html>

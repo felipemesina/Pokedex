@@ -1,0 +1,39 @@
+#wrapper{
+    width: 780px;
+    border: 1px solid black;
+    display: inline-block;
+    box-sizing: content-box;
+}
+
+
+#pokedex_frame{
+    width: 400px;
+    height: 650px;
+    border: 40px solid red;
+    border-bottom: 90px solid red;
+    border-radius: 15px; 
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+
+}
+
+h1{
+    text-align: center;
+    font-family: Verdana;
+    color: yellow;
+    text-shadow: 2px 3px blue;
+}
+
+h4{
+    font-family: arial;
+
+}
+
+#poke_img{
+    box-sizing: border-box;
+    text-align: center;
+ 
+}
+
+
